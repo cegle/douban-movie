@@ -1,7 +1,7 @@
 # douban-movie
 a Vue demo about douban movie. on showing movies, top 250 movies.
 
-##demo
+## demo
 ![demo](https://i.loli.net/2018/12/04/5c0647c35b779.png)
 
 ## Build Setup
