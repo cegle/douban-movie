@@ -129,4 +129,7 @@ export default {
 nav {
   margin: 15px 0 30px 0;
 }
+.disabled {
+  cursor: not-allowed;
+}
 </style>

@@ -5,10 +5,13 @@
     </div>
     <h2>{{title}}</h2>
     <div class="row">
-      <div class="col-md-2 text-center" v-for="item in list" :key="item.id">
+      <div class="col-md-2 center-block" v-for="item in list" :key="item.id">
         <router-link :to="{path:'/detail/' + item.id}">
-          <img :src="getImg(item.images.large)" :alt="item.title">
-          <div class="title">{{item.title}}</div>
+          <img class="img-responsive" :src="getImg(item.images.large)" :alt="item.title">
+        </router-link>
+        <div class="rating text-center">评分：{{item.rating.average}}</div>
+        <router-link :to="{path:'/detail/' + item.id}">
+          <div class="title text-center">{{item.title}}</div>
         </router-link>
       </div>
     </div>
@@ -17,7 +20,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 import pagination from "./Pagination";
 export default {
   data() {
@@ -61,7 +63,7 @@ export default {
       this.$axios
         .post(movieUrl, params)
         .then(res => {
-          //   console.log(res.data);
+          console.log(res.data);
           this.list = res.data.subjects;
           this.title = res.data.title;
           this.total = res.data.total;
@@ -91,6 +93,11 @@ img {
 }
 .row > div {
   margin-bottom: 20px;
+}
+.rating {
+  white-space: nowrap;
+  color: #3b3b3b;
+  margin-top: 10px;
 }
 .title {
   height: 20px;
